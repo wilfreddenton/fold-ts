@@ -24,17 +24,17 @@ const all = <A>(p: (a: A) => boolean): Fold<A, boolean> => (run) =>
   run({
     step: (x, a) => x && p(a),
     initial: true,
-    extract: (b) => b,
+    extract: id,
   })
 
 const nub = <A>(): Fold<A, A[]> => (run) =>
-  run<Set<A>>({
+  run({
     step: (x, a) => {
       if (x.has(a)) return x
       return x.add(a)
     },
-    initial: new Set(),
-    extract: (x) => Array.from(x.values()),
+    initial: new Set<A>(),
+    extract: (x) => [...x],
   })
 
 export { Reduce, Foldable, Fold, fold, all, sum, nub }
