@@ -12,9 +12,7 @@ const testTree = new Tree<number>({
       value: 3,
     }),
     value: 2,
-    right: new Tree({
-      tag: 'EMPTY',
-    }),
+    right: new Tree(),
   }),
   value: 2,
   right: new Tree({
