@@ -1,9 +1,11 @@
 import { Foldable, Reduce } from '../src/index'
 
-export default class Tree<A> implements Foldable<A> {
-  root: Empty | Leaf<A> | Node<A> = { tag: 'EMPTY' }
+type Root<A> = Empty | Leaf<A> | Node<A>
 
-  constructor(root: Empty | Leaf<A> | Node<A>) {
+export default class Tree<A> implements Foldable<A> {
+  root: Root<A>
+
+  constructor(root: Root<A> = { tag: 'EMPTY' }) {
     this.root = root
   }
 

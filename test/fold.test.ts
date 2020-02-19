@@ -30,13 +30,13 @@ test.each([testArray, testTree])('sum', async (fa) => {
 test.each([testArray, testTree])('any', async (fa) => {
   expect(
     fold(
-      all((a: number) => a > 0),
+      all((a) => a > 0),
       fa,
     ),
   ).toBe(true)
   expect(
     fold(
-      all((a: number) => a < 0),
+      all((a) => a < 0),
       fa,
     ),
   ).toBe(false)
