@@ -29,10 +29,7 @@ const all = <A>(p: (a: A) => boolean): Fold<A, boolean> => (run) =>
 
 const nub = <A>(): Fold<A, A[]> => (run) =>
   run({
-    step: (x, a) => {
-      if (x.has(a)) return x
-      return x.add(a)
-    },
+    step: (x, a) => x.add(a),
     initial: new Set<A>(),
     extract: (x) => [...x],
   })
