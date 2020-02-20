@@ -13,7 +13,7 @@ export default class Tree<A> implements Foldable<A> {
     const root = this.root
     switch (root.tag) {
       case 'NODE':
-        return root.left.reduce(step, step(root.right.reduce(step, init), root.value))
+        return root.right.reduce(step, step(root.left.reduce(step, init), root.value))
       case 'LEAF':
         return step(init, root.value)
       default:

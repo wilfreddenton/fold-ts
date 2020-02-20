@@ -9,7 +9,7 @@ const testTree = new Tree<number>({
     tag: 'NODE',
     left: new Tree({
       tag: 'LEAF',
-      value: 3,
+      value: 1,
     }),
     value: 2,
     right: new Tree(),
@@ -17,7 +17,7 @@ const testTree = new Tree<number>({
   value: 2,
   right: new Tree({
     tag: 'LEAF',
-    value: 1,
+    value: 3,
   }),
 })
 
