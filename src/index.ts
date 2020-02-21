@@ -6,7 +6,7 @@ interface Foldable<A> {
 
 type Fold_<X, A, B> = { step: (x: X, a: A) => X; initial: X; extract: (x: X) => B }
 
-type Fold<A, B> = (run: <X>(_: Fold_<X, A, B>) => B) => B
+type Fold<A, B> = <R>(run: <X>(_: Fold_<X, A, B>) => R) => R
 
 const fold = <A, B>(f: Fold<A, B>, fa: Foldable<A>) =>
   f(({ step, initial, extract }) => extract(fa.reduce(step, initial)))
