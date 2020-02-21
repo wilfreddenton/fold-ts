@@ -7,7 +7,7 @@ declare type Fold_<X, A, B> = {
     initial: X;
     extract: (x: X) => B;
 };
-declare type Fold<A, B> = (run: <X>(_: Fold_<X, A, B>) => B) => B;
+declare type Fold<A, B> = <R>(run: <X>(_: Fold_<X, A, B>) => R) => R;
 declare const fold: <A, B>(f: Fold<A, B>, fa: Foldable<A>) => B;
 declare const sum: Fold<number, number>;
 declare const all: <A>(p: (a: A) => boolean) => Fold<A, boolean>;
