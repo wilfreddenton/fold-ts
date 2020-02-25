@@ -8,10 +8,10 @@ type Fold_<X, A, B> = { step: (x: X, a: A) => X; initial: X; extract: (x: X) => 
 
 type Fold<A, B> = <R>(run: <X>(_: Fold_<X, A, B>) => R) => R
 
-const fold = <A, B>(f: Fold<A, B>, fa: Foldable<A>) =>
+const fold = <A, B>(f: Fold<A, B>, fa: Foldable<A>): B =>
   f(({ step, initial, extract }) => extract(fa.reduce(step, initial)))
 
-const id = <B>(b: B) => b
+const id = <B>(b: B): B => b
 
 const sum: Fold<number, number> = (run) =>
   run({
